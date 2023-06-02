@@ -21,7 +21,7 @@ int main(){
 	
 	char ch;
 	fflush(stdin);
-	printf("\Nhap ky tu: ");
+	printf("Nhap ky tu: ");
 	ch = getchar(); // Nhap vao 1 ky tu: scanf("%c", &ch);
 	putchar(ch); // printf("%c", ch);
 	
