@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<string.h>
-
 int main() {
     char c;
     char s[100];
@@ -13,15 +12,14 @@ int main() {
         if (s[i] == c) {
             index = i;
             /*
-            G?i l?nh break d? d?ng vòng l?p do
-            dã tìm th?y v? trí d?u tiên mà kı t? c xu?t hi?n.
-            N?u không có l?nh break thì k?t qu? c?a chuong trình
-            s? là v? trí cu?i cùng mà kı t? c xu?t hi?n.
+            G?i l?nh break d? d?ng vÃ²ng l?p do
+            dÃ£ tÃ¬m th?y v? trÃ­ d?u tiÃªn mÃ  kÃ½ t? c xu?t hi?n.
+            N?u khÃ´ng cÃ³ l?nh break thÃ¬ k?t qu? c?a chuong trÃ¬nh
+            s? lÃ  v? trÃ­ cu?i cÃ¹ng mÃ  kÃ½ t? c xu?t hi?n.
             */
             break;
         }
     }
     printf("%d", index);
-
     return 0;
 }
