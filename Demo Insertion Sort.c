@@ -7,13 +7,13 @@ int main(){
 		i = j - 1;
 		temp = data[j];
 		while((i >= 0) && (temp < data[i])){
-			data[i + 1] == data[i];
+			data[i + 1] = data[i];
 			i--;
 		}
 		data[i + 1] = temp;
 	}
 	for(i = 0; i < 5; i++){
-		printf("\n%d", data[i]);
+		printf("%d\n", data[i]);
 	}
 	return 0;
 }
