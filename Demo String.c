@@ -25,8 +25,8 @@ int main(){
 	}
 	/* Display the arranged list of strings */
 	printf("Recorded list of strings:\n");
-    for (i = 0; i < n; ++i) {
+    	for (i = 0; i < n; ++i) {
         printf("String %d: %s\n", i + 1, lines[i]);
-    }
+    	}
 	return 0;
 }
