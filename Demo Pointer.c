@@ -1,19 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
-//int main(){
-//	int *ptr; // Khai bao
-//	int a = 10;
-//	ptr = &a; // ptr tro vao bien a
-//	// *ptr = gia tri cua a => *ptr = 10
-//	// ptr = dia chi cua a
-//	*ptr = 50; // a = 50
-//	printf("\nGia tri cua a: %d va %d", a, *ptr);
-//	printf("\nDia chi cua a: %d, ptr %d", &a, ptr);
-//	return 0;
-//}
+int main(){
+	int *ptr; // Khai bao
+	int a = 10;
+	ptr = &a; // ptr tro vao bien a
+	// *ptr = gia tri cua a => *ptr = 10
+	// ptr = dia chi cua a
+	*ptr = 50; // a = 50
+	printf("\nGia tri cua a: %d va %d", a, *ptr);
+	printf("\nDia chi cua a: %d, ptr %d", &a, ptr);
+	return 0;
+}
 
 // Or
-
 int main(){
 	int arr[10];
 	float *ptr2;
@@ -38,7 +37,7 @@ int main(){
 	}
 	printf("\nMang vua nhap: ");
 	for(i = 0; i < n; i++){
-		printf("%d ", ptr[i]); // printf("%d", *(ptr + i));
+		printf("\n%d", ptr[i]); // printf("%d", *(ptr + i));
 	}
 	// Sort array
 	int j, temp;
