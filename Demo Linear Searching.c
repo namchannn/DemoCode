@@ -12,7 +12,7 @@ int main(){
 		}
 	}
 	if(a != data[i]){
-		printf("Number not found at array.");
+		printf("Number not found.");
 	}
 	return 0;
 }
