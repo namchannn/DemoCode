@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
-int main(){
-	int *ptr; // Khai bao
-	int a = 10;
-	ptr = &a; // ptr tro vao bien a
-	// *ptr = gia tri cua a => *ptr = 10
-	// ptr = dia chi cua a
-	*ptr = 50; // a = 50
-	printf("\nGia tri cua a: %d va %d", a, *ptr);
-	printf("\nDia chi cua a: %d, ptr %d", &a, ptr);
-	return 0;
-}
+//int main(){
+//	int *ptr; // Khai bao
+//	int a = 10;
+//	ptr = &a; // ptr tro vao bien a
+//	// *ptr = gia tri cua a => *ptr = 10
+//	// ptr = dia chi cua a
+//	*ptr = 50; // a = 50
+//	printf("\nGia tri cua a: %d va %d", a, *ptr);
+//	printf("\nDia chi cua a: %d, ptr %d", &a, ptr);
+//	return 0;
+//}
 
 // Or
 
@@ -27,12 +27,12 @@ int main(){
 	// Tuc la Mang khong con bi gioi han vi su dung Mang nhu Con Tro
 	int *ptr; // Khai bao 1 Mang "dong"
 	int n, i, sum = 0;
-	printf("\nBan muon luu tru bao nhieu phan tu: ");
+	printf("Ban muon luu tru bao nhieu phan tu: ");
 	scanf("%d", &n);
 	// Cap phat bo nho dong
 	ptr = (int*)malloc(n*sizeof(int));
 	ptr2 = (float*)malloc(n*sizeof(float));
-	printf("\nNhap gia tri: ");
+	printf("\nNhap gia tri: \n");
 	for(i = 0; i < n; i++){
 		scanf("%d", ptr + i); // scanf("%d", &ptr[i];
 	}
@@ -51,7 +51,7 @@ int main(){
 			}
 		}
 	}
-	printf("\nMang sap xep: ");
+	printf("\n\nMang sap xep: ");
 	for(i = 0; i < n; i++){
 		printf("\n%d", ptr[i]); // printf("\n%d", *(ptr + i));
 	}
