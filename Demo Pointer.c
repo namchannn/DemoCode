@@ -13,6 +13,7 @@ int main(){
 }
 
 // Or
+
 int main(){
 	int arr[10];
 	float *ptr2;
