@@ -1,16 +1,18 @@
 #include <stdio.h>
 int main(){
 	int data[] = {5,2,9,7,6,10};
-	int a = 7, i;
+	int a, i, j;
+	printf("data[] = {5,2,9,7,6,10}\n");
+	printf("Enter a: ");
+	scanf("%d", &a);
 	for(i = 0; i < 6; i++){
 		if(a == data[i]){
+			printf("Number %d found at index %d.", a, i);
 			break;
 		}
-		if(i < 6){
-			printf("Number %d found at %d.\n", a, i);
-		}else{
-			printf("Number %d not found.\n", a);
-		}
+	}
+	if(a != data[i]){
+		printf("Number not found at array.");
 	}
 	return 0;
 }
