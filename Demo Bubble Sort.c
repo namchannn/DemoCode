@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main(){
 	int i, j, temp;
-	int arr[5] = {23,90,9,25,15};
+	int arr[5] = {23,90,9,25,16};
 	for(i = 0; i < 5; i++){
 		for(j = 0; j < 6 - i - 1; j++){
 			if(arr[j] > arr[j + 1]){
