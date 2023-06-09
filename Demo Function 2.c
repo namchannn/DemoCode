@@ -1,12 +1,18 @@
 #include <stdio.h>
-void checkPrimeNumber(int n); // define function
+
+// Define function
+void checkPrimeNumber(int n);
+
 int main(){
 	int number;
 	printf("\nNhap vao 1 so nguyen duong: ");
 	scanf("%d", &number);
-		checkPrimeNumber(number); // call function
+		// Call function
+		checkPrimeNumber(number);
 	return 0;
 }
+
+// Code function check Prime Number
 void checkPrimeNumber(int n){
 	int i, flag = 0;
 	// 0 va 1 loai
