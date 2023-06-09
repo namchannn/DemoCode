@@ -1,5 +1,5 @@
 #include <stdio.h>
-// Sap xep Mang + phan ra thanh cac function
+// Sắp xếp Mảng + phân ra thành các function
 
 // Code function swap value 2 variable
 void swap(int *a, int *b){
