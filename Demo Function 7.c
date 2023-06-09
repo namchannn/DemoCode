@@ -26,6 +26,7 @@ void printArray(int n, int *ptr){
 	for(i = 0; i < n; i++){
 		printf("\n%d", ptr[i]);
 	}
+	printf("\n");
 }
 void findMax(int n, int *ptr){
 	int i;
@@ -35,7 +36,7 @@ void findMax(int n, int *ptr){
 			maxValue = ptr[i];
 		}
 	}
-	printf("\nLargest number is: %d", maxValue);
+	printf("\nLargest number is: %d\n", maxValue);
 }
 void findMin(int n, int *ptr){
 	int i;
@@ -45,15 +46,15 @@ void findMin(int n, int *ptr){
 			minValue = ptr[i];
 		}
 	}
-	printf("\nSmallest number is: %d", minValue);
+	printf("\nSmallest number is: %d\n", minValue);
 }
 int main(){
 	int n = 5, i;
 	int arr[] = {4,5,1,3,9};
 	sortArray(n, arr);
 	printArray(n, arr);
-	findMax(n, arr);
-	findMin(n, arr);
 	// Print min, max number
+	findMin(n, arr);
+	findMax(n, arr);
 	return 0;
 }
