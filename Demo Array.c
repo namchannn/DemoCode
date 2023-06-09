@@ -1,18 +1,18 @@
 // Demo Array
 #include <stdio.h>
 int main(){
-	// 1. Array 1 bien
-	// 2. Cac phan tu mang lien tiep nhau trong o nho duoc cap phat
-	// 3. Dung mang "Lean code"
-	// 4. Loop la thanh phan nhu ca + nuoc voi Array
+	// 1. Array 1 biến
+	// 2. Các phần tử Mảng liên tiếp nhau trong ô nhớ được cấp phát
+	// 3. Dùng Mảng "Lean code"
+	// 4. Loop là thành phần như cá + nước với Array
 	
-	// Yeu cau: Tinh tong cac ptu cua mang
+	// Yêu cầu: Tính tổng các phần tử của Mảng
 	/*
-		Giai thuat: Algorithm
-		b1 -> DN 1 mang A va gan gia tri
-		b2 -> Lap trong moi ptu cua mang A de lay gia tri
-		b3 -> Khai bao 1 bien 'sum' luu ket qua
-		b4 -> Hien thi ket qua sau khi vong lap ket thuc
+		Giải thuật: Algorithm
+		b1 -> ĐN 1 Mảng A và gán giá trị
+		b2 -> Lặp trong mỗi phần tử của Mảng A để lấy giá trị
+		b3 -> Khai báo 1 biến 'sum' lưu kết quả
+		b4 -> Hiển thị kết quả sau khi vòng lặp kết thúc
 	*/
 	int array[5] = {4,3,1,0,9}; // b1
 	int loop; // b2
