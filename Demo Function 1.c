@@ -1,5 +1,6 @@
 #include <stdio.h>
 // Khai bao ham ten: add voi 2 tham so x, y
+
 // Step 1
 int add(int x, int y);
 int main(){
@@ -9,6 +10,7 @@ int main(){
 	total = add(a, b); // => x = a; y = b;
 	printf("%d", total);
 }
+
 // Step 3 - Coding
 // Trien khai code trong ham add
 int add(int x, int y){
