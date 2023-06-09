@@ -1,10 +1,14 @@
 #include <stdio.h>
 // Sap xep Mang + phan ra thanh cac function
+
+// Code function swap value 2 variable
 void swap(int *a, int *b){
 	int temp = *a;
 	*a = *b;
 	*b = temp;
 }
+
+// Code function sort Array
 void sortArray(int n, int *ptr){
 	int i, j, temp;
 	for(i = 0; i < n; i++){
@@ -21,6 +25,8 @@ void sortArray(int n, int *ptr){
 		}
 	}
 }
+
+// Code function print Array
 void printArray(int n, int *ptr){
 	int i;
 	for(i = 0; i < n; i++){
@@ -28,16 +34,7 @@ void printArray(int n, int *ptr){
 	}
 	printf("\n");
 }
-void findMax(int n, int *ptr){
-	int i;
-	int maxValue = ptr[0];
-	for(i = 0; i < n; i++){
-		if(ptr[i] > maxValue){
-			maxValue = ptr[i];
-		}
-	}
-	printf("\nLargest number is: %d\n", maxValue);
-}
+// Code fucntion find Min Value
 void findMin(int n, int *ptr){
 	int i;
 	int minValue = ptr[0];
@@ -48,12 +45,27 @@ void findMin(int n, int *ptr){
 	}
 	printf("\nSmallest number is: %d\n", minValue);
 }
+
+// Code function find Max Value
+void findMax(int n, int *ptr){
+	int i;
+	int maxValue = ptr[0];
+	for(i = 0; i < n; i++){
+		if(ptr[i] > maxValue){
+			maxValue = ptr[i];
+		}
+	}
+	printf("\nLargest number is: %d\n", maxValue);
+}
+
 int main(){
 	int n = 5, i;
 	int arr[] = {4,5,1,3,9};
+	// Call function sort Array
 	sortArray(n, arr);
+	// Call function print Array
 	printArray(n, arr);
-	// Print min, max number
+	// Call function print Min, Max Number
 	findMin(n, arr);
 	findMax(n, arr);
 	return 0;
