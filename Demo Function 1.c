@@ -3,6 +3,7 @@
 
 // Step 1
 int add(int x, int y);
+
 int main(){
 	int a = 5, b = 10, total = 0;
 	// Goi ham (yeu cau ham add thuc thi)
