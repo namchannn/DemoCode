@@ -8,17 +8,17 @@
 
 // Coffee function
 void coffee(){
-	printf("\nEnjoy your Coffee!");
+	printf("Enjoy your Coffee!");
 }
 
 // Tea function
 void tea(){
-	printf("\nEnjoy your Tea!");
+	printf("Enjoy your Tea!");
 }
 
 // Milk function
 void milk(){
-	printf("\nEnjoy your Milk1");
+	printf("Enjoy your Milk!");
 }
 
 // Main function
@@ -28,10 +28,10 @@ int main(){
 	int flag = 1;
 	//menu display
 	printf("Menu");
-	printf("\n1.Coffee");
-	printf("\n2.Tea");
-	printf("\n3.Milk");
-	printf("\n4.Exit");
+	printf("\n1. Coffee");
+	printf("\n2. Tea");
+	printf("\n3. Milk");
+	printf("\n4. Exit");
 	
 	while(flag){
 		printf("\n\nEnter your choice: ");
@@ -48,10 +48,11 @@ int main(){
 				milk();
 				break;
 			case 4:
+				printf("Bye!!!");
 				flag = 0; // kết thúc loop while
 				break;
 			default:
-				printf("\nInvalid input.");
+				printf("Invalid input.");
 				break;
 		}
 		
