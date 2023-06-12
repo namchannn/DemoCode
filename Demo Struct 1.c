@@ -16,7 +16,7 @@ struct Student
 
 int main(){
 	
-	struct Student student2;
+	struct Student student1;
 	student1.roll_no = 1;
 	strcpy(student1.name,"Nguyen Phu Trong"); // gets(student1.name);
 	student1.marks = 11;
