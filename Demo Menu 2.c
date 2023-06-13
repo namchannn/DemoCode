@@ -30,9 +30,9 @@ void check_prime(){
 		}
 	}
 	if(flag == 1){
-		printf("%d is not Prim number.", a);
+		printf("%d is not Prime number.", a);
 	}else{
-		printf("%d is Prim number.", a);
+		printf("%d is Prime number.", a);
 	}
 }
 
