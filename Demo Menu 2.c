@@ -13,22 +13,23 @@ void check_odd_even(){
 
 void check_prime(){
 	int a;
-	int flag = 0;
+	int flag = 1;
 	printf("\nEnter checking number: ");
 	scanf("%d", &a);
-	if(a == 0 || a == 1){
-		flag = 1;
-	}
-	for(int i = 2; i < a / 2; i++){
-		if(a % i == 0){
-			flag = 1;
+	if(a < 2){
+		flag = 0;
+	}else{
+		for(int i = 2; i <= a / 2; i++){
+			if(a % i == 0){
+			flag = 0;
 			break;
+			}
 		}
 	}
-	if(flag == 1){
-		printf("%d is not Prime number.", a);
-	}else{
+	if(flag){
 		printf("%d is Prime number.", a);
+	}else{
+		printf("%d is not Prime number.", a);
 	}
 }
 
