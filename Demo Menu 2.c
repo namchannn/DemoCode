@@ -1,8 +1,4 @@
 #include <stdio.h>
-#include <math.h>
-
-void prime();
-void odd_even();
 
 void check_odd_even(){
 	int a;
