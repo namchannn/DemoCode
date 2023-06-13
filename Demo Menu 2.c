@@ -16,7 +16,7 @@ void check_odd_even(){
 }
 
 void check_prime(){
-	int a, n;
+	int a;
 	int flag = 0;
 	printf("\nEnter checking number: ");
 	scanf("%d", &a);
