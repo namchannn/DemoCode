@@ -17,54 +17,54 @@ struct employee{
 
 void creatEmployee(int n){
 	for(int i = 0; i < n; i++){
-		printf("Enter ID Employee number %d: ", i + 1);
+		printf("Enter Employee ID %d: ", i + 1);
 		scanf("%d", &emp[i].eid);
 		fflush(stdin);
 		printf("Enter Name: ");
 		gets(emp[i].name);
-		printf("Enter salary: ");
+		printf("Enter Salary: ");
 		scanf("%f", &emp[i].salary);
 	}
 }
 
 void displayAll(int n){
 	for(int i = 0; i < n; i++){
-		printf("ID_Employee: %d", emp[i].eid);
+		printf("Employee ID: %d", emp[i].eid);
 		printf("\nName: ");
 		puts(emp[i].name);
-		printf("Salary: %0.2f$", emp[i].salary);
+		printf("Salary: %0.2f$\n", emp[i].salary);
 	}
 }
 
 void findEmployeeById(int id, int n){
-	printf("\nResult check\n");
+	printf("\nResult Check\n");
 	for(int i = 0; i < n; i++){
 		if(emp[i].eid == id){
-			printf("ID_Employee: %d", emp[i].eid);
+			printf("Employee ID: %d", emp[i].eid);
 			printf("\nName: ");
 			puts(emp[i].name);
-			printf("Salary: %0.2f$", emp[i].salary);
+			printf("Salary: %0.2f$\n", emp[i].salary);
 		}
 	}
 }
 
 void findEmployeeByName(char name[], int n){
-	printf("\nResult check\n");
+	printf("\nResult Check\n");
 	for(int i = 0; i < n; i++){
 		if(strcmp(emp[i].name, name) == 0){
-			printf("ID_Employee: %d", emp[i].eid);
+			printf("Employee ID: %d", emp[i].eid);
 			printf("\nName: ");
 			puts(emp[i].name);
-			printf("Salary: %0.2f$", emp[i].salary);
+			printf("Salary: %0.2f$\n", emp[i].salary);
 		}
 	}
 }
 
 void checkSalary(int n){
-	printf("\nResult check\n");
+	printf("\nResult Check\n");
 	for(int i = 0; i < n; i++){
 		if(emp[i].salary > 3000){
-			printf("\nID_Employee: %d", emp[i].eid);
+			printf("Employee ID: %d", emp[i].eid);
 			printf("\nName: ");
 			puts(emp[i].name);
 			printf("Salary: %0.2f$\n", emp[i].salary);
@@ -76,7 +76,7 @@ void updateEmployee(int id, int n){
 	for(int i = 0; i < n; i++){
 		if(emp[i].eid == id){
 			printf("Enter new data to update: ");
-			printf("\nEmployee name: ");
+			printf("\nEmployee Name: ");
 			fflush(stdin);
 			gets(emp[i].name);
 			printf("Salary: ");
@@ -112,6 +112,7 @@ int main(){
 			case 2:
 				printf("\nAll Employee: \n");
 				displayAll(n);
+				printf("\n");
 				break;
 			case 3:
 				printf("\nEnter Employee ID to be search: ");
@@ -128,15 +129,15 @@ int main(){
 				checkSalary(n);
 				break;
 			case 6:
-				printf("Enter ID Employee to be update: ");
+				printf("\nEnter ID Employee to be update: ");
 				scanf("%d", &id);
 				updateEmployee(id, n);
 				break;
 			case 7:				
-				printf("End programing!!!\n");
+				printf("\nEnd programing!!!\n");
 				exit(0);
 			default:
-				printf("ID not invalid!!!\n");
+				printf("\nNot invalid - Enter only from 1 to 7!!!\n");
 				break;
 		}
 	}
