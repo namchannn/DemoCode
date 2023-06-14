@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 
 // Struct: là Mảng mà phần tử Mảng có các kiểu dữ liệu khác nhau
 // Tên của struct (cấu trúc)
