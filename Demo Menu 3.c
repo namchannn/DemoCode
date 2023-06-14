@@ -138,7 +138,7 @@ int main(){
 				updateEmployee(id, n);
 				break;
 			case 7:				
-				printf("\nEnd programing!\n");
+				printf("\nEnding program!\n");
 				exit(0);
 			default:
 				printf("\nNot invalid! - Please try again.\n");
