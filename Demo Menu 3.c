@@ -95,7 +95,7 @@ int main(){
 	char name[50];
 	
 	printf("\n\t\tMenu");
-	printf("\n 1. Creat Employee");
+	printf("\n 1. Creat and Input Employee information");
 	printf("\n 2. List all Employee");
 	printf("\n 3. Search Employee by ID");
 	printf("\n 4. Search Employee by Name");
