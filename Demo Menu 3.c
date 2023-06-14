@@ -45,7 +45,7 @@ void findEmployeeById(int id, int n){
 			puts(emp[i].name);
 			printf("Salary: %0.2f$\n", emp[i].salary);
 		}else{
-			printf("Not found.\n");
+			printf("Not found!.\n");
 		}
 	}
 }
@@ -59,7 +59,7 @@ void findEmployeeByName(char name[], int n){
 			puts(emp[i].name);
 			printf("Salary: %0.2f$\n", emp[i].salary);
 		}else{
-			printf("Not found.\n");
+			printf("Not found!.\n");
 		}
 	}
 }
