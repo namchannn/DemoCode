@@ -9,14 +9,12 @@
 // 3. Lương > 3000
 
 
-struct employee{ // Hàm cấu trúc dữ liệu Nhân Nviên
 struct employee{
 	int eid;
 	char name[50];
 	float salary;
 }emp[5];
 
-void creatEmployee(int n){ // Hàm tạo thông tin Nviên
 void creatEmployee(int n){
 	for(int i = 0; i < n; i++){
 		printf("Enter Employee ID %d: ", i + 1);
@@ -29,7 +27,6 @@ void creatEmployee(int n){
 	}
 }
 
-void displayAll(int n){ // Hiển thị thông tin của tất cả Nviên
 void displayAll(int n){
 	for(int i = 0; i < n; i++){
 		printf("Employee ID: %d", emp[i].eid);
@@ -39,7 +36,6 @@ void displayAll(int n){
 	}
 }
 
-void findEmployeeById(int id, int n){ // Tìm kiếm thông tin Nviên bằng ID
 void findEmployeeById(int id, int n){
 	printf("\nResult Check\n");
 	for(int i = 0; i < n; i++){
@@ -54,7 +50,6 @@ void findEmployeeById(int id, int n){
 	}
 }
 
-void findEmployeeByName(char name[], int n){ // Tìm kiếm thông tin Nviên bằng tên
 void findEmployeeByName(char name[], int n){
 	printf("\nResult Check\n");
 	for(int i = 0; i < n; i++){
@@ -69,11 +64,9 @@ void findEmployeeByName(char name[], int n){
 	}
 }
 
-void checkSalary(int n){ // Kiểm tra lương
 void checkSalary(int n){
 	printf("\nResult Check\n");
 	for(int i = 0; i < n; i++){
-		if(emp[i].salary > 3000){ // Lương trên 3000$
 		if(emp[i].salary > 3000){
 			printf("Employee ID: %d", emp[i].eid);
 			printf("\nName: ");
@@ -83,7 +76,6 @@ void checkSalary(int n){
 	}	
 }
 
-void updateEmployee(int id, int n){ // Cập nhật thông tin Nviên bằng ID
 void updateEmployee(int id, int n){
 	for(int i = 0; i < n; i++){
 		if(emp[i].eid == id){
@@ -116,46 +108,38 @@ int main(){
 		scanf("%d", &choice);
 		
 		switch(choice){
-			case 1: // Nhập thông tin cho Nvien
 			case 1:
 				printf("Enter number Employee: ");
 				scanf("%d", &n);
 				creatEmployee(n);
 				break;
-			case 2: // Hiển thị thông tin tất cả Nviên
 			case 2:
 				printf("\nAll Employee: \n");
 				displayAll(n);
 				printf("\n");
 				break;
-			case 3: // Tìm Nviên bằng ID
 			case 3:
 				printf("\nEnter ID of Employee to be search: ");
 				scanf("%d", &id);
 				findEmployeeById(id, n);				
 				break;
-			case 4: // Tìm Nviên bằng tên
 			case 4:
 				printf("\nEnter name of Employee to be search: ");
 				fflush(stdin);
 				gets(name);
 				findEmployeeByName(name, n);
 				break;
-			case 5:	// Kiểm tra lương trên 3000
 			case 5:
 				checkSalary(n);
 				break;
-			case 6: // Cập nhật thông tin Nviên
 			case 6:
 				printf("\nEnter ID Employee to be update: ");
 				scanf("%d", &id);
 				updateEmployee(id, n);
 				break;
-			case 7:	// Kết thúc
 			case 7:				
 				printf("\nEnd programing!\n");
 				exit(0);
-			default: // Nhập lại
 			default:
 				printf("\nNot invalid! - Please try again.\n");
 				printf("(Enter only from 1 to 7)\n");
