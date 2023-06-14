@@ -62,7 +62,7 @@ int main(){
 			}
 		}
 		if(!found){
-		printf("ID not invalid!!!\n");
+			printf("ID not invalid!!!\n");
 		}
 	}
 	
