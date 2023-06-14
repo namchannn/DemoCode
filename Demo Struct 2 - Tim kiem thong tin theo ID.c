@@ -24,8 +24,9 @@ struct Student
 int main(){
 	// Declartion
 	int searchID;
+	int found = 0;
 	
-	for(int i = 0; i < 2; i++){
+	for(int i = 0; i < 5; i++){
 		printf("\nEnter information student no.%d", i + 1);
 		printf("\nEnter ID: ");
 		scanf("%d", &student[i].roll_no);
@@ -41,10 +42,16 @@ int main(){
 		gets(student[i].address);	
 	}
 	
-	for (int i = 0; i < 2; i++){
-		printf("\nEnter searching ID: ");
-		scanf("%d", &searchID);	
-		if(student[i].roll_no == searchID){
+	while(1){
+		printf("\nEnter searching ID studen: ");
+		scanf("%d", &searchID);
+		if(searchID == 0){
+			break;
+		}
+		found = 0;
+		for(int i = 0; i < 5; i++){
+			if(student[i].roll_no == searchID){
+			found = 1;
 			printf("ID_Student: %d", student[i].roll_no);
 			printf("\nName: ");
 			puts(student[i].name);
@@ -52,8 +59,10 @@ int main(){
 			printf("Adress: ");
 			puts(student[i].address);
 			break;
-		}else{
-			printf("ID not invalid!!!\n");
+			}
+		}
+		if(!found){
+		printf("ID not invalid!!!\n");
 		}
 	}
 	
