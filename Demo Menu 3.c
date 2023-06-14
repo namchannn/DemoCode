@@ -32,41 +32,42 @@ void displayAll(int n){
 		printf("ID_Employee: %d", emp[i].eid);
 		printf("\nName: ");
 		puts(emp[i].name);
-		printf("Salary: %0.2f", emp[i].salary);
+		printf("Salary: %0.2f$", emp[i].salary);
 	}
 }
 
 void findEmployeeById(int id, int n){
-	printf("Result check\n");
+	printf("\nResult check\n");
 	for(int i = 0; i < n; i++){
 		if(emp[i].eid == id){
 			printf("ID_Employee: %d", emp[i].eid);
 			printf("\nName: ");
 			puts(emp[i].name);
-			printf("Salary: %0.2f", emp[i].salary);
+			printf("Salary: %0.2f$", emp[i].salary);
 		}
 	}
 }
 
 void findEmployeeByName(char name[], int n){
+	printf("\nResult check\n");
 	for(int i = 0; i < n; i++){
 		if(strcmp(emp[i].name, name) == 0){
 			printf("ID_Employee: %d", emp[i].eid);
 			printf("\nName: ");
 			puts(emp[i].name);
-			printf("Salary: %0.2f", emp[i].salary);
+			printf("Salary: %0.2f$", emp[i].salary);
 		}
 	}
 }
 
 void checkSalary(int n){
-	printf("Result check\n");
+	printf("\nResult check\n");
 	for(int i = 0; i < n; i++){
 		if(emp[i].salary > 3000){
 			printf("\nID_Employee: %d", emp[i].eid);
 			printf("\nName: ");
 			puts(emp[i].name);
-			printf("Salary: %0.2f\n", emp[i].salary);
+			printf("Salary: %0.2f$\n", emp[i].salary);
 		}
 	}	
 }
@@ -78,7 +79,7 @@ void updateEmployee(int id, int n){
 			printf("\nEmployee name: ");
 			fflush(stdin);
 			gets(emp[i].name);
-			printf("\nSalary: ");
+			printf("Salary: ");
 			scanf("%f", &emp[i].salary);
 		}
 	}
@@ -109,7 +110,7 @@ int main(){
 				creatEmployee(n);
 				break;
 			case 2:
-				printf("All Employee: ");
+				printf("\nAll Employee: \n");
 				displayAll(n);
 				break;
 			case 3:
