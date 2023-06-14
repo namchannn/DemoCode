@@ -55,7 +55,7 @@ int main(){
 			printf("\nName: ");
 			puts(student[i].name);
 			printf("Date Of Birth: %d/%d/%d\n", student[i].dob.day, student[i].dob.month, student[i].dob.year);
-			printf("Adress: ");
+			printf("Address: ");
 			puts(student[i].address);
 			break;
 			}
