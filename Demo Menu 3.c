@@ -18,7 +18,7 @@
 struct employee{
 	int eid; // Biến thành phần Mã NV
 	char name[50]; // Biến thành phần tên NV
-	float salary; // Biến cấu trúc lương NV
+	float salary; // Biến thành phần lương NV
 };
 
 // Hàm kiểm tra ID trùng nhau
