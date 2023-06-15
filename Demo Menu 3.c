@@ -5,9 +5,12 @@
 
 /* Struct: là cách duy nhất nói về 1 đối tượng mà trên đối tượng đó có các kiểu dữ liệu khác nhau */
 // Viết chương trình QLNV với các chức năng:
-// 1. Tìm kiếm
-// 2. Hiển thị thông tin
-// 3. Lương > 3000
+// 1. Nhập thông tin NV
+// 2. Hiển thị thông tin tất cả NV
+// 3. Tìm kiếm thông tin NV theo ID
+// 4. Tìm kiếm thông tin NV theo Tên
+// 5. Hiển thị NV lương > 3000
+// 6. Cập nhật thông tin NV theo ID
 
 #define MAX_EMPLOYEES 5 // Định nghĩa biến giới hạn slnv
 
