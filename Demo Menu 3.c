@@ -16,7 +16,7 @@ struct employee{
 	int eid; // Biến thành phần Mã NV
 	char name[50]; // Biến thành phần tên NV
 	float salary; // Biến cấu trúc lương NV
-}emp[5];
+};
 
 // Hàm kiểm tra ID trùng nhau
 bool checkSameId(struct employee emp[], int id,int currentEmployeeIndex){
@@ -55,7 +55,7 @@ void creatEmployee(struct employee emp[]){
 // Hàm hiển thị thông tin tất cả NV
 void displayAll(struct employee emp[]){
 	for(int i = 0; i < MAX_EMPLOYEES; i++){
-		printf("Employee ID: %d", emp[i].eid);
+		printf("ID: %d", emp[i].eid);
 		printf("\nName: ");
 		puts(emp[i].name);
 		printf("Salary: %0.2f$\n", emp[i].salary);
@@ -69,7 +69,7 @@ void findEmployeeById(struct employee emp[], int id){
 	for(int i = 0; i < MAX_EMPLOYEES; i++){
 		if(emp[i].eid == id){
 			found = 1;
-			printf("Employee ID: %d", emp[i].eid);
+			printf("ID: %d", emp[i].eid);
 			printf("\nName: ");
 			puts(emp[i].name);
 			printf("Salary: %0.2f$\n", emp[i].salary);
@@ -88,7 +88,7 @@ void findEmployeeByName(struct employee emp[], char name[]){
 	for(int i = 0; i < MAX_EMPLOYEES; i++){
 		if(strcmp(emp[i].name, name) == 0){
 			found = 1;
-			printf("Employee ID: %d", emp[i].eid);
+			printf("ID: %d", emp[i].eid);
 			printf("\nName: ");
 			puts(emp[i].name);
 			printf("Salary: %0.2f$\n", emp[i].salary);
@@ -105,7 +105,7 @@ void checkSalary(struct employee emp[]){
 	printf("\nResult Check\n");
 	for(int i = 0; i < MAX_EMPLOYEES; i++){
 		if(emp[i].salary > 3000){ // NV lương > 3000 thì hiển thị
-			printf("Employee ID: %d", emp[i].eid);
+			printf("ID: %d", emp[i].eid);
 			printf("\nName: ");
 			puts(emp[i].name);
 			printf("Salary: %0.2f$\n", emp[i].salary);
