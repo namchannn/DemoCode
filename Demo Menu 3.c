@@ -12,7 +12,7 @@
 // 5. Hiển thị NV lương > 3000
 // 6. Cập nhật thông tin NV theo ID
 
-#define MAX_EMPLOYEES 5 // Định nghĩa biến giới hạn slnv
+#define maxEMP 5 // Định nghĩa biến giới hạn slnv
 
 // Hàm cấu trúc NV
 struct employee{
@@ -22,8 +22,8 @@ struct employee{
 };
 
 // Hàm kiểm tra ID trùng nhau
-bool checkSameId(struct employee emp[], int id,int currentEmployeeIndex){
-	for(int i = 0; i < currentEmployeeIndex; i++){
+bool checkDupId(struct employee emp[], int id,int currentEmpIndex){
+	for(int i = 0; i < currentEmpIndex; i++){
 		if(emp[i].eid == id){
 			return false; // nếu ID trùng trả về sai
 		}
@@ -32,15 +32,15 @@ bool checkSameId(struct employee emp[], int id,int currentEmployeeIndex){
 }
 
 // Hàm nhập thông tin Nviên
-void creatEmployee(struct employee emp[]){
-	for(int i = 0; i < MAX_EMPLOYEES; i++){
+void creatEmp(struct employee emp[]){
+	for(int i = 0; i < maxEMP; i++){
 		printf("Enter Employee %d:\n", i + 1);
 		
 		while(true){
 			printf("Enter ID: ");
 			scanf("%d", &emp[i].eid);
 			
-			if(checkSameId(emp, emp[i].eid, i)){ // thỏa mãn điều kiện check thì kết thúc vòng lặp
+			if(checkDupId(emp, emp[i].eid, i)){ // thỏa mãn điều kiện check thì kết thúc vòng lặp
 				break;
 			}else{
 				printf("ID already exists! Please try again.\n"); // không thỏa mãn thì báo lỗi yêu cầu nhập lại
@@ -57,7 +57,7 @@ void creatEmployee(struct employee emp[]){
 
 // Hàm hiển thị thông tin tất cả NV
 void displayAll(struct employee emp[]){
-	for(int i = 0; i < MAX_EMPLOYEES; i++){
+	for(int i = 0; i < maxEMP; i++){
 		printf("ID: %d", emp[i].eid);
 		printf("\nName: ");
 		puts(emp[i].name);
@@ -66,10 +66,10 @@ void displayAll(struct employee emp[]){
 }
 
 // Hàm tìm kiếm thông tin NV theo ID
-void findEmployeeById(struct employee emp[], int id){
+void findEmpById(struct employee emp[], int id){
 	int found = 0;
 	printf("\nResult Check\n");
-	for(int i = 0; i < MAX_EMPLOYEES; i++){
+	for(int i = 0; i < maxEMP; i++){
 		if(emp[i].eid == id){
 			found = 1;
 			printf("ID: %d", emp[i].eid);
@@ -85,10 +85,10 @@ void findEmployeeById(struct employee emp[], int id){
 }
 
 // Hàm tìm kiếm thông tin NV theo tên
-void findEmployeeByName(struct employee emp[], char name[]){
+void findEmpByName(struct employee emp[], char name[]){
 	int found = 0;
 	printf("\nResult Check\n");
-	for(int i = 0; i < MAX_EMPLOYEES; i++){
+	for(int i = 0; i < maxEMP; i++){
 		if(strcmp(emp[i].name, name) == 0){
 			found = 1;
 			printf("ID: %d", emp[i].eid);
@@ -106,7 +106,7 @@ void findEmployeeByName(struct employee emp[], char name[]){
 // Hàm kiểm tra lương NV
 void checkSalary(struct employee emp[]){
 	printf("\nResult Check\n");
-	for(int i = 0; i < MAX_EMPLOYEES; i++){
+	for(int i = 0; i < maxEMP; i++){
 		if(emp[i].salary > 3000){ // NV lương > 3000 thì hiển thị
 			printf("ID: %d", emp[i].eid);
 			printf("\nName: ");
@@ -117,9 +117,9 @@ void checkSalary(struct employee emp[]){
 }
 
 // Hàm cập nhật thông tin NV theo ID
-void updateEmployee(struct employee emp[], int id){
+void updateEmp(struct employee emp[], int id){
 	int found = 0;
-	for(int i = 0; i < MAX_EMPLOYEES; i++){
+	for(int i = 0; i < maxEMP; i++){
 		if(emp[i].eid == id){
 			found = 1;
 			printf("Enter new data to update: ");
@@ -139,7 +139,7 @@ int main(){
 	int choice;
 	int n, id;
 	char name[50];
-	struct employee emp[MAX_EMPLOYEES];
+	struct employee emp[maxEMP];
 	
 	printf("\n\t\tMenu");
 	printf("\n 1. Creat and Input Employee information");
@@ -156,7 +156,7 @@ int main(){
 		
 		switch(choice){
 			case 1:
-				creatEmployee(emp);
+				creatEmp(emp);
 				break;
 			case 2:
 				printf("\nAll Employee: \n");
@@ -166,13 +166,13 @@ int main(){
 			case 3:
 				printf("\nEnter ID of Employee to be search: ");
 				scanf("%d", &id);
-				findEmployeeById(emp, id);				
+				findEmpById(emp, id);				
 				break;
 			case 4:
 				printf("\nEnter name of Employee to be search: ");
 				fflush(stdin);
 				gets(name);
-				findEmployeeByName(emp, name);
+				findEmpByName(emp, name);
 				break;
 			case 5:
 				checkSalary(emp);
@@ -180,7 +180,7 @@ int main(){
 			case 6:
 				printf("\nEnter ID Employee to be update: ");
 				scanf("%d", &id);
-				updateEmployee(emp, id);
+				updateEmp(emp, id);
 				break;
 			case 7:
 				printf("\nEnding program!\n");
