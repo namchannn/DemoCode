@@ -23,7 +23,9 @@ struct employee{
 
 // Hàm kiểm tra ID trùng nhau
 bool checkDupId(struct employee emp[], int id,int currentEmpIndex){
+	
 	for(int i = 0; i < currentEmpIndex; i++){
+		
 		if(emp[i].eid == id){
 			return false; // nếu ID trùng trả về sai
 		}
@@ -33,6 +35,7 @@ bool checkDupId(struct employee emp[], int id,int currentEmpIndex){
 
 // Hàm nhập thông tin Nviên
 void creatEmp(struct employee emp[]){
+	
 	for(int i = 0; i < maxEMP; i++){
 		printf("Enter Employee %d:\n", i + 1);
 		
@@ -45,8 +48,7 @@ void creatEmp(struct employee emp[]){
 			}else{
 				printf("ID already exists! Please try again.\n"); // không thỏa mãn thì báo lỗi yêu cầu nhập lại
 			}
-		}
-		
+		}		
 		printf("Enter Name: ");
 		fflush(stdin);
 		gets(emp[i].name);
@@ -57,6 +59,8 @@ void creatEmp(struct employee emp[]){
 
 // Hàm hiển thị thông tin tất cả NV
 void displayAll(struct employee emp[]){
+	printf("\nAll Employee: \n");
+	
 	for(int i = 0; i < maxEMP; i++){
 		printf("ID: %d", emp[i].eid);
 		printf("\nName: ");
@@ -68,36 +72,53 @@ void displayAll(struct employee emp[]){
 // Hàm tìm kiếm thông tin NV theo ID
 void findEmpById(struct employee emp[], int id){
 	int found = 0;
-	printf("\nResult Check\n");
-	for(int i = 0; i < maxEMP; i++){
-		if(emp[i].eid == id){
+	
+	while(1){
+		printf("\nEnter ID of Employee to be search (Or press the '0' button to back): ");
+		scanf("%d", &id);
+		
+		if(id == 0){
+			break;
+		}
+		printf("\nResult Check\n");
+		
+		for(int i = 0; i < maxEMP; i++){
+			
+			if(emp[i].eid == id){
 			found = 1;
 			printf("ID: %d", emp[i].eid);
 			printf("\nName: ");
 			puts(emp[i].name);
 			printf("Salary: %0.2f$\n", emp[i].salary);
 			break;
+			}
 		}
-	}
-	if(!found){
-		printf("ID not invalid! Please try again.\n");
-	}
+		
+		if(!found){
+			printf("ID not invalid! Please try again.\n");
+		}
+	}	
 }
 
 // Hàm tìm kiếm thông tin NV theo tên
 void findEmpByName(struct employee emp[], char name[]){
 	int found = 0;
+	printf("\nEnter name of Employee to be search: ");
+	fflush(stdin);
+	gets(name);
 	printf("\nResult Check\n");
+	
 	for(int i = 0; i < maxEMP; i++){
 		if(strcmp(emp[i].name, name) == 0){
-			found = 1;
-			printf("ID: %d", emp[i].eid);
-			printf("\nName: ");
-			puts(emp[i].name);
-			printf("Salary: %0.2f$\n", emp[i].salary);
-			break;
+		found = 1;
+		printf("ID: %d", emp[i].eid);
+		printf("\nName: ");
+		puts(emp[i].name);
+		printf("Salary: %0.2f$\n", emp[i].salary);
+		break;
 		}
 	}
+		
 	if(!found){
 		printf("Name not invalid! Please try again.\n");
 	}
@@ -106,7 +127,9 @@ void findEmpByName(struct employee emp[], char name[]){
 // Hàm kiểm tra lương NV
 void checkSalary(struct employee emp[]){
 	printf("\nResult Check\n");
+	
 	for(int i = 0; i < maxEMP; i++){
+		
 		if(emp[i].salary > 3000){ // NV lương > 3000 thì hiển thị
 			printf("ID: %d", emp[i].eid);
 			printf("\nName: ");
@@ -119,20 +142,33 @@ void checkSalary(struct employee emp[]){
 // Hàm cập nhật thông tin NV theo ID
 void updateEmp(struct employee emp[], int id){
 	int found = 0;
-	for(int i = 0; i < maxEMP; i++){
-		if(emp[i].eid == id){
-			found = 1;
-			printf("Enter new data to update: ");
-			printf("\nEmployee Name: ");
-			fflush(stdin);
-			gets(emp[i].name);
-			printf("Salary: ");
-			scanf("%f", &emp[i].salary);
+	
+	while(1){
+		printf("\nEnter ID Employee to be update (Or press the '0' button to back): ");
+		scanf("%d", &id);
+		
+		if(id == 0){
+			break;
+		}
+		
+		for(int i = 0; i < maxEMP; i++){
+			
+			if(emp[i].eid == id){
+				found = 1;
+				printf("Enter new data to update: ");
+				printf("\nEmployee Name: ");
+				fflush(stdin);
+				gets(emp[i].name);
+				printf("Salary: ");
+				scanf("%f", &emp[i].salary);
+			}
+		}
+		
+		if(!found){
+			printf("ID not invalid! Please try again.\n");
 		}
 	}
-	if(!found){
-		printf("ID not invalid! Please try again.\n");
-	}
+	
 }
 
 int main(){
@@ -147,43 +183,36 @@ int main(){
 	printf("\n 3. Search Employee by ID");
 	printf("\n 4. Search Employee by Name");
 	printf("\n 5. Display Employee whose salary > 3000");
-	printf("\n 6. Update Employee");
+	printf("\n 6. Update Employee by ID");
 	printf("\n 7. Exit");
 	printf("\n====================================\n");
+	
 	while(1){
 		printf("\nEnter your choice: ");
 		scanf("%d", &choice);
 		
 		switch(choice){
+			
 			case 1:
 				creatEmp(emp);
 				break;
 			case 2:
-				printf("\nAll Employee: \n");
 				displayAll(emp);
-				printf("\n");
 				break;
 			case 3:
-				printf("\nEnter ID of Employee to be search: ");
-				scanf("%d", &id);
 				findEmpById(emp, id);				
 				break;
 			case 4:
-				printf("\nEnter name of Employee to be search: ");
-				fflush(stdin);
-				gets(name);
 				findEmpByName(emp, name);
 				break;
 			case 5:
 				checkSalary(emp);
 				break;
 			case 6:
-				printf("\nEnter ID Employee to be update: ");
-				scanf("%d", &id);
 				updateEmp(emp, id);
 				break;
 			case 7:
-				printf("\nEnding program!\n");
+				printf("\nEndding program!\n");
 				exit(0);
 			default:
 				printf("\nNot invalid! - Please try again.\n");
