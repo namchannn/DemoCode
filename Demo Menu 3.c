@@ -156,7 +156,6 @@ int main(){
 		
 		switch(choice){
 			case 1:
-
 				creatEmployee(emp);
 				break;
 			case 2:
