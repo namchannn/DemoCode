@@ -12,7 +12,7 @@
 // 5. Hiển thị NV lương > 3000
 // 6. Cập nhật thông tin NV theo ID
 
-#define maxEMP 2 // Định nghĩa biến giới hạn slnv
+#define maxEMP 5 // Định nghĩa biến giới hạn slnv
 
 // Hàm cấu trúc NV
 struct employee{
