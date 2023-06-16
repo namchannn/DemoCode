@@ -11,7 +11,7 @@
 // 4. Tìm kiếm thông tin SV theo Tên
 // 5. Cập nhật thông tin NV theo ID
 
-#define maxStudents 2
+#define maxStudents 5
 
 struct DateOfBirth{
 	int day;
