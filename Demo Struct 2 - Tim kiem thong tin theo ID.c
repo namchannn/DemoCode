@@ -26,18 +26,18 @@ int main(){
 	int found = 0;
 	
 	for(int i = 0; i < 5; i++){
-		printf("\nEnter information student no.%d", i + 1);
+		printf("Enter information student no.%d", i + 1);
 		printf("\nEnter ID: ");
 		scanf("%d", &student[i].roll_no);
-		getchar();
 		printf("Enter name: ");
+		fflush(stdin);
 		gets(student[i].name);
 		printf("Enter class: ");
 		gets(student[i].class_room);
 		printf("Enter date of birth (dd/mm/yyyy): ");
 		scanf("%d %d %d", &student[i].dob.day, &student[i].dob.month, &student[i].dob.year);
-		getchar();
 		printf("Enter adress: ");
+		fflush(stdin);
 		gets(student[i].address);	
 	}
 	
