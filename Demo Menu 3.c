@@ -109,6 +109,7 @@ void findEmpByName(struct employee emp[], char name[]){
 	printf("\nResult Check\n");
 	
 	for(int i = 0; i < maxEMP; i++){
+		
 		if(strcmp(emp[i].name, name) == 0){
 		found = 1;
 		printf("ID: %d", emp[i].eid);
