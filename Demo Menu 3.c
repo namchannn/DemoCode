@@ -183,7 +183,7 @@ void updateEmp(struct employee emp[], int id){
 
 int main(){
 	int choice;
-	int n, id;
+	int id;
 	char name[50];
 	struct employee emp[maxEMP];
 	
