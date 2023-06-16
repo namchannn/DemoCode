@@ -103,26 +103,35 @@ void findEmpById(struct employee emp[], int id){
 // Hàm tìm kiếm thông tin NV theo tên
 void findEmpByName(struct employee emp[], char name[]){
 	int found = 0;
-	printf("\nEnter name of Employee to be search: ");
-	fflush(stdin);
-	gets(name);
-	printf("\nResult Check\n");
+	int i;
 	
-	for(int i = 0; i < maxEMP; i++){
+	while(1){
+		printf("\nEnter name of Employee to be search (Or press the '0' button to back): ");
+		fflush(stdin);
+		gets(name);
 		
-		if(strcmp(emp[i].name, name) == 0){
-		found = 1;
-		printf("ID: %d", emp[i].eid);
-		printf("\nName: ");
-		puts(emp[i].name);
-		printf("Salary: %0.2f$\n", emp[i].salary);
-		break;
+		if(name[i] == '0'){
+			break;
+		}
+		printf("\nResult Check\n");
+	
+		for(int i = 0; i < maxEMP; i++){
+		
+			if(strcmp(emp[i].name, name) == 0){
+			found = 1;
+			printf("ID: %d", emp[i].eid);
+			printf("\nName: ");
+			puts(emp[i].name);
+			printf("Salary: %0.2f$\n", emp[i].salary);
+			break;
+			}
+		}
+		
+		if(!found){
+		printf("Name not invalid! Please try again.\n");
 		}
 	}
-		
-	if(!found){
-		printf("Name not invalid! Please try again.\n");
-	}
+	
 }
 
 // Hàm kiểm tra lương NV
