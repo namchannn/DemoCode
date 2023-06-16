@@ -10,6 +10,7 @@
 // 3. Tìm kiếm thông tin SV theo ID
 // 4. Tìm kiếm thông tin SV theo Tên
 // 5. Cập nhật thông tin NV theo ID
+// 6. Thoát
 
 #define maxStudents 5
 
