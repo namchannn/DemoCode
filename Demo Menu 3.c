@@ -33,7 +33,7 @@ bool checkDupId(struct employee emp[], int id,int currentEmpIndex){
 	return true; // ID k trùng trả về đúng
 }
 
-// Hàm nhập thông tin Nviên
+// Hàm nhập thông tin NV
 void creatEmp(struct employee emp[]){
 	
 	for(int i = 0; i < maxEMP; i++){
