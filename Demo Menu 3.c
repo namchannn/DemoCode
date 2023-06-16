@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
+
 
 /* Struct: là cách duy nhất nói về 1 đối tượng mà trên đối tượng đó có các kiểu dữ liệu khác nhau */
 // Viết chương trình QLNV với các chức năng:
@@ -22,15 +22,15 @@ struct employee{
 };
 
 // Hàm kiểm tra ID trùng nhau
-bool checkDupId(struct employee emp[], int id,int currentEmpIndex){
+int checkDupId(struct employee emp[], int id,int currentEmpIndex){
 	
 	for(int i = 0; i < currentEmpIndex; i++){
 		
 		if(emp[i].eid == id){
-			return false; // nếu ID trùng trả về sai
+			return 0; // nếu ID trùng trả về sai
 		}
 	}
-	return true; // ID k trùng trả về đúng
+	return 1; // ID k trùng trả về đúng
 }
 
 // Hàm nhập thông tin NV
@@ -39,7 +39,7 @@ void creatEmp(struct employee emp[]){
 	for(int i = 0; i < maxEMP; i++){
 		printf("Enter Employee %d:\n", i + 1);
 		
-		while(true){
+		while(1){
 			printf("Enter ID: ");
 			scanf("%d", &emp[i].eid);
 			
