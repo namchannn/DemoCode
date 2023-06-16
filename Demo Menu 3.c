@@ -11,6 +11,7 @@
 // 4. Tìm kiếm thông tin NV theo Tên
 // 5. Hiển thị NV lương > 3000
 // 6. Cập nhật thông tin NV theo ID
+// 7. Thoát
 
 #define maxEMP 5 // Định nghĩa biến giới hạn slnv
 
