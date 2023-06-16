@@ -12,7 +12,7 @@
 // 5. Hiển thị NV lương > 3000
 // 6. Cập nhật thông tin NV theo ID
 
-#define maxEMP 5 // Định nghĩa biến giới hạn slnv
+#define maxEMP 2 // Định nghĩa biến giới hạn slnv
 
 // Hàm cấu trúc NV
 struct employee{
@@ -95,7 +95,7 @@ void findEmpById(struct employee emp[], int id){
 		}
 		
 		if(!found){
-			printf("ID not invalid! Please try again.\n");
+			printf("ID not invalid! - Please try again.\n");
 		}
 	}	
 }
@@ -127,8 +127,9 @@ void findEmpByName(struct employee emp[], char name[]){
 			}
 		}
 		
-		if(!found){
-		printf("Name not invalid! Please try again.\n");
+		if(name[i] != found){
+			printf("Name not invalid! - Please try again.\n");
+			continue;
 		}
 	}
 	
@@ -175,7 +176,7 @@ void updateEmp(struct employee emp[], int id){
 		}
 		
 		if(!found){
-			printf("ID not invalid! Please try again.\n");
+			printf("ID not invalid! - Please try again.\n");
 		}
 	}
 	
@@ -189,7 +190,7 @@ int main(){
 	
 	printf("\n\t\tMenu");
 	printf("\n 1. Creat and Input Employee information");
-	printf("\n 2. List all Employee");
+	printf("\n 2. List all Employees");
 	printf("\n 3. Search Employee by ID");
 	printf("\n 4. Search Employee by Name");
 	printf("\n 5. Display Employee whose salary > 3000");
@@ -222,7 +223,7 @@ int main(){
 				updateEmp(emp, id);
 				break;
 			case 7:
-				printf("\nEndding program!\n");
+				printf("\nEnding Program!\n");
 				exit(0);
 			default:
 				printf("\nNot invalid! - Please try again.\n");
