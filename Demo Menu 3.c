@@ -136,7 +136,26 @@ void findEmpByName(struct employee emp[], char name[]){
 	
 }
 
-// Hàm kiểm tra lương NV
+// Hàm sắp xếp lương NV giảm dần
+void sortSalaryDown(struct employee emp[]){
+	struct employee temp;
+	
+	for(int i = 0; i < maxEMP; i++){ // Bubble Sort
+		
+		for(int j = 0; j < maxEMP - i - 1; j++){
+			
+			if(emp[j].salary < emp[j + 1].salary){
+				temp = emp[j];
+				emp[j] = emp[j + 1];
+				emp[j + 1] = temp;
+			}
+		}
+	}
+	displayAll(emp);
+	
+}
+
+// Hàm kiểm tra lương NV > 3000
 void checkSalary(struct employee emp[]){
 	printf("\nResult Check\n");
 	
@@ -218,12 +237,15 @@ int main(){
 				findEmpByName(emp, name);
 				break;
 			case 5:
-				checkSalary(emp);
+				sortSalaryDown(emp);
 				break;
 			case 6:
-				updateEmp(emp, id);
+				checkSalary(emp);
 				break;
 			case 7:
+				updateEmp(emp, id);
+				break;
+			case 8:
 				printf("\nEnding Program!\n");
 				exit(0);
 			default:
