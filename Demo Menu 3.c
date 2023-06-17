@@ -9,11 +9,12 @@
 // 2. Hiển thị thông tin tất cả NV
 // 3. Tìm kiếm thông tin NV theo ID
 // 4. Tìm kiếm thông tin NV theo Tên
-// 5. Hiển thị NV lương > 3000
-// 6. Cập nhật thông tin NV theo ID
-// 7. Thoát
+// 5. Sắp xếp NV lương giảm dần
+// 6. Hiển thị NV lương > 3000
+// 7. Cập nhật thông tin NV theo ID
+// 8. Thoát
 
-#define maxEMP 5 // Định nghĩa biến giới hạn slnv
+#define maxEMP 3 // Định nghĩa biến giới hạn slnv
 
 // Hàm cấu trúc NV
 struct employee{
@@ -91,7 +92,6 @@ void findEmpById(struct employee emp[], int id){
 			printf("\nName: ");
 			puts(emp[i].name);
 			printf("Salary: %0.2f$\n", emp[i].salary);
-			break;
 			}
 		}
 		
@@ -213,9 +213,10 @@ int main(){
 	printf("\n 2. List all Employees");
 	printf("\n 3. Search Employee by ID");
 	printf("\n 4. Search Employee by Name");
-	printf("\n 5. Display Employee whose salary > 3000");
-	printf("\n 6. Update Employee by ID");
-	printf("\n 7. Exit");
+	printf("\n 5. Sort Employee Salary High to Low");
+	printf("\n 6. Display Employee whose salary > 3000");
+	printf("\n 7. Update Employee by ID");
+	printf("\n 8. Exit");
 	printf("\n====================================\n");
 	
 	while(1){
