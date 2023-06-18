@@ -118,7 +118,7 @@ void sortEmpById(struct employee emp[], int maxEMP){
 			}
 		}
 	}
-	printf("\n\tSorted ID\n\n");
+	printf("\n\tSorted ID\n");
 	displayEmp(emp, maxEMP);
 }
 
@@ -137,7 +137,7 @@ void sortEmpBySalaryRank(struct employee emp[], int maxEMP){
 			}
 		}
 	}
-	printf("\n\tRank Salary\n\n");
+	printf("\n\tRank Salary\n");
 	displayEmp(emp, maxEMP);
 }
 
@@ -272,13 +272,13 @@ int main(){
 		switch(choice){
 			
 			case 1:
-				printf("\n\tAll Employee: \n\n");
+				printf("\n\tAll Employee:\n");
 				displayEmp(emp, maxEMP);
 				updateEmp(emp, id, maxEMP);
 				printf("\n\tUpdated!\n");
 				break;
 			case 2:
-				printf("\n\tAll Employee: \n\n");
+				printf("\n\tAll Employee:\n");
 				displayEmp(emp, maxEMP);
 				break;
 			case 3:
