@@ -248,7 +248,7 @@ int main(){
 	char name[50];
 	struct employee *emp;
 	
-	emp = (struct employee*)malloc(maxEMP * sizeof(struct employee));
+	emp = (struct employee*)malloc(maxEMP * sizeof(struct employee)); // cấp phát bộ nhớ động cho con trỏ emp
 	
 	printf("\tCreat and Input Employee information\n");
 	printf("Enter number of Employee to be creat: ");
