@@ -22,6 +22,7 @@ struct DateOfBirth{
 struct student{
 	int eid;
 	char name[50];
+	char sex[10];
 	char class_room[10];
 	char address[100];
 	struct DateOfBirth dob;
@@ -61,6 +62,9 @@ void creatStd(struct student std[], int maxStd){
 		gets(std[i].class_room);
 		printf("Enter date of birth (dd/mm/yyyy): ");
 		scanf("%d %d %d", &std[i].dob.day, &std[i].dob.month, &std[i].dob.year);
+		printf("Enter sex: ");
+		fflush(stdin);
+		gets(std[i].sex);
 		printf("Enter address: ");
 		fflush(stdin);
 		gets(std[i].address);
@@ -76,7 +80,9 @@ void displayStd(struct student std[], int maxStd){
 		printf("Class room: ");
 		puts(std[i].class_room);
 		printf("Date of birth: %d/%d/%d", std[i].dob.day, std[i].dob.month, std[i].dob.year);
-		printf("\nAddress: ");
+		printf("\nSex: ");
+		puts(std[i].sex);
+		printf("Address: ");
 		puts(std[i].address);
 	}
 }
@@ -105,6 +111,9 @@ void updateStdById(struct student std[], int id, int maxStd){
 				gets(std[i].class_room);
 				printf("Enter date of birth: ");
 				scanf("%d %d %d", &std[i].dob.day, &std[i].dob.month, &std[i].dob.year);
+				printf("Enter sex: ");
+				fflush(stdin);
+				gets(std[i].sex);
 				printf("Enter address: ");
 				fflush(stdin);
 				gets(std[i].address);
@@ -159,7 +168,9 @@ void findStdById(struct student std[], int id, int maxStd){
 				printf("Class room: ");
 				puts(std[i].class_room);
 				printf("Date of birth: %d/%d/%d", std[i].dob.day, std[i].dob.month, std[i].dob.year);
-				printf("\nAdress: ");
+				printf("\nSex: ");
+				puts(std[i].sex);
+				printf("Adress: ");
 				puts(std[i].address);
 				break;
 			}
@@ -197,7 +208,9 @@ void findStdByName(struct student std[], char name[], int maxStd){
 				printf("Class room: ");
 				puts(std[i].class_room);
 				printf("Date of birth: %d/%d/%d", std[i].dob.day, std[i].dob.month, std[i].dob.year);
-				printf("\nAdress: ");
+				printf("\nSex: ");
+				puts(std[i].sex);
+				printf("Adress: ");
 				puts(std[i].address);
 				break;
 			}
