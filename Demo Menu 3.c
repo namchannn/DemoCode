@@ -6,7 +6,7 @@
 /* Struct: là cách duy nhất nói về 1 đối tượng mà trên đối tượng đó có các kiểu dữ liệu khác nhau */
 // Viết chương trình QLNV với các chức năng:
 // Nhập thông tin NV với số lượng tự nhập vào sau đó hiển thị ra Menu lựa chọn các chức năng
-// 				Menu
+//				Menu
 // 1. Cập nhật thông tin NV theo ID
 // 2. Hiển thị thông tin tất cả NV
 // 3. Sắp xếp NV theo thứ tự ID
