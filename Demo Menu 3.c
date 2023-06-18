@@ -14,7 +14,7 @@
 // 5. Tìm kiếm NV lương cao nhất
 // 6. Tìm kiếm thông tin NV theo ID
 // 7. Tìm kiếm thông tin NV theo Tên
-// 8. Thoát
+// 0. Thoát
 
 // Hàm cấu trúc NV
 struct employee{
@@ -262,7 +262,7 @@ int main(){
 	printf("\n 5. Search Employee largest Salary");
 	printf("\n 6. Search Employee by ID");
 	printf("\n 7. Search Employee by Name");
-	printf("\n 8. Exit");
+	printf("\n 0. Exit");
 	printf("\n====================================\n");
 	
 	while(1){
@@ -296,7 +296,7 @@ int main(){
 			case 7:
 				findEmpByName(emp, name, maxEMP);
 				break;
-			case 8:
+			case 0:
 				printf("\n\tEnding Program...\n");
 				free(emp);
 				exit(0);
