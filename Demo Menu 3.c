@@ -15,8 +15,6 @@
 // 8. Cập nhật thông tin NV theo ID
 // 9. Thoát
 
-//#define maxEMP 5 // Định nghĩa giới hạn SLNV
-
 // Hàm cấu trúc NV
 struct employee{
 	int eid; // Biến thành phần Mã NV
@@ -278,7 +276,10 @@ int main(){
 				creatEmp(emp, maxEMP);
 				break;
 			case 2:
+				printf("\nAll Employee: \n");
+				displayEmp(emp, maxEMP);
 				updateEmp(emp, id, maxEMP);
+				printf("\n\tUpdated!\n");
 				break;
 			case 3:
 				printf("\nAll Employee: \n");
@@ -300,12 +301,11 @@ int main(){
 				findEmpByName(emp, name, maxEMP);
 				break;
 			case 9:
-				printf("\nEnding Program!\n");
+				printf("\n\tEnding Program...\n");
 				free(emp);
 				exit(0);
 			default:
-				printf("\nNot invalid! - Please try again.\n");
-				printf("(Enter only from 1 to 9)\n");
+				printf("\n\tNot invalid! - Please try again.\n");
 				break;
 		}
 	}
