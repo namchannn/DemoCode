@@ -11,9 +11,7 @@
 // 3. Tìm kiếm thông tin SV theo ID
 // 4. Tìm kiếm thông tin SV theo Tên
 // 5. Cập nhật thông tin NV theo ID
-// 6. Thoát
-
-#define maxStudents 3
+// 0. Thoát
 
 struct DateOfBirth{
 	int day;
@@ -21,15 +19,15 @@ struct DateOfBirth{
 	int year;
 };
 
-struct Student{
+struct student{
 	int eid;
-	char name[30];
+	char name[50];
 	char class_room[10];
 	char address[100];
 	struct DateOfBirth dob;
 };
 
-bool checkDupID(struct Student std[], int id, int currentStdIndex){
+bool checkDupID(struct student std[], int id, int currentStdIndex){
 	
 	for(int i = 0; i < currentStdIndex; i++){
 		
@@ -40,9 +38,9 @@ bool checkDupID(struct Student std[], int id, int currentStdIndex){
 	return true;
 }
 
-void creatStd(struct Student std[]){
+void creatStd(struct student std[], int maxStd){
 	
-	for(int i = 0; i < maxStudents; i++){
+	for(int i = 0; i < maxStd; i++){
 		printf("Enter Student %d:\n", i + 1);
 		
 		while(true){
@@ -69,11 +67,10 @@ void creatStd(struct Student std[]){
 	}
 }
 
-void displayAll(struct Student std[]){
-	printf("\nAll Students: \n");
+void displayStd(struct student std[], int maxStd){
 	
-	for(int i = 0; i < maxStudents; i++){
-		printf("ID: %d", std[i].eid);
+	for(int i = 0; i < maxStd; i++){
+		printf("\nID: %d", std[i].eid);
 		printf("\nName: ");
 		puts(std[i].name);
 		printf("Class room: ");
@@ -84,79 +81,7 @@ void displayAll(struct Student std[]){
 	}
 }
 
-void findStdById(struct Student std[], int id){
-	int found = 0;
-	
-	while(1){
-		printf("\nEnter ID of Student to be search (Or press the '0' button to back): ");
-		scanf("%d", &id);
-		
-		if(id == 0){
-			break;
-		}
-		printf("\nResult Check\n");
-		
-		for(int i = 0; i < maxStudents; i++){
-			
-			if(std[i].eid == id){
-				found = 1;
-				printf("ID: %d", std[i].eid);
-				printf("\nName: ");
-				puts(std[i].name);
-				printf("Class room: ");
-				puts(std[i].class_room);
-				printf("Date of birth: %d/%d/%d", std[i].dob.day, std[i].dob.month, std[i].dob.year);
-				printf("\nAdress: ");
-				puts(std[i].address);
-			}
-		}
-		
-		if(!found){
-			printf("ID not invalid! - Please try again.\n");
-			continue;
-		}
-		break;
-	}
-}
-
-void findStdByName(struct Student std[], char name[]){
-	int found = 0;
-	int i;
-	
-	while(1){
-		printf("\nEnter Name of Student to be search (Or press the '0' button to back): ");
-		fflush(stdin);
-		gets(name);
-		
-		if(name[i] == '0'){
-			break;
-		}
-		printf("\nResult Check\n");
-		
-		for(int i = 0; i < maxStudents; i++){
-			
-			if(strcmp(std[i].name, name) == 0){
-				found = 1;
-				printf("ID: %d", std[i].eid);
-				printf("\nName: ");
-				puts(std[i].name);
-				printf("Class room: ");
-				puts(std[i].class_room);
-				printf("Date of birth: %d/%d/%d", std[i].dob.day, std[i].dob.month, std[i].dob.year);
-				printf("\nAdress: ");
-				puts(std[i].address);
-			}
-		}
-		
-		if(!found){
-			printf("Name not invalid! - Please try again.\n");
-			continue;
-		}
-		break;
-	}
-}
-
-void updateStdById(struct Student std[], int id){
+void updateStdById(struct student std[], int id, int maxStd){
 	int found = 0;
 	
 	while(1){
@@ -167,7 +92,7 @@ void updateStdById(struct Student std[], int id){
 			break;
 		}
 		
-		for(int i = 0; i < maxStudents; i++){
+		for(int i = 0; i < maxStd; i++){
 			
 			if(std[i].eid == id){
 				found = 1;
@@ -187,7 +112,99 @@ void updateStdById(struct Student std[], int id){
 		}
 		
 		if(!found){
-			printf("ID not invalid! - Please try again.\n");
+			printf("\n\tID not found! - Please try again.\n");
+			continue;
+		}
+		break;
+	}
+}
+
+void sortStdById(struct student std[], int maxStd){
+	struct student temp;
+	
+	for(int i = 0; i < maxStd; i++){
+		
+		for(int j = 0; j < maxStd - i - 1; j++){
+			
+			if(std[j].eid > std[j + 1].eid){
+				temp = std[j];
+				std[j] = std[j + 1];
+				std[j + 1] = temp;
+			}
+		}
+	}
+	printf("\n\tSorted ID\n");
+	displayStd(std, maxStd);
+}
+
+void findStdById(struct student std[], int id, int maxStd){
+	int found = 0;
+	
+	while(1){
+		printf("\nEnter ID of Student to be search (Or press the '0' button to back): ");
+		scanf("%d", &id);
+		
+		if(id == 0){
+			break;
+		}
+		printf("\n\tResult Check\n\n");
+		
+		for(int i = 0; i < maxStd; i++){
+			
+			if(std[i].eid == id){
+				found = 1;
+				printf("ID: %d", std[i].eid);
+				printf("\nName: ");
+				puts(std[i].name);
+				printf("Class room: ");
+				puts(std[i].class_room);
+				printf("Date of birth: %d/%d/%d", std[i].dob.day, std[i].dob.month, std[i].dob.year);
+				printf("\nAdress: ");
+				puts(std[i].address);
+				break;
+			}
+		}
+		
+		if(!found){
+			printf("ID not found! - Please try again.\n");
+			continue;
+		}
+		break;
+	}
+}
+
+void findStdByName(struct student std[], char name[], int maxStd){
+	int found = 0;
+	int i;
+	
+	while(1){
+		printf("\nEnter Name of Student to be search (Or press the '0' button to back): ");
+		fflush(stdin);
+		gets(name);
+		
+		if(name[i] == '0'){
+			break;
+		}
+		printf("\n\tResult Check\n\n");
+		
+		for(int i = 0; i < maxStd; i++){
+			
+			if(strcmp(std[i].name, name) == 0){
+				found = 1;
+				printf("ID: %d", std[i].eid);
+				printf("\nName: ");
+				puts(std[i].name);
+				printf("Class room: ");
+				puts(std[i].class_room);
+				printf("Date of birth: %d/%d/%d", std[i].dob.day, std[i].dob.month, std[i].dob.year);
+				printf("\nAdress: ");
+				puts(std[i].address);
+				break;
+			}
+		}
+		
+		if(!found){
+			printf("Name not found! - Please try again.\n");
 			continue;
 		}
 		break;
@@ -197,16 +214,23 @@ void updateStdById(struct Student std[], int id){
 int main(){
 	int choice;
 	int id;
-	char name[30];
-	struct Student std[maxStudents];
+	int maxStd;
+	char name[50];
+	struct student *std;
 	
+	std = (struct student*)malloc(maxStd * sizeof(struct student));
+	
+	printf("\tCreat and Input Student information\n");
+	printf("Enter number of Student to be creat: ");
+	scanf("%d", &maxStd);
+	creatStd(std, maxStd);
 	printf("\n\t\tMenu");
-	printf("\n 1. Creat and Input Student information");
+	printf("\n 1. Update Student by ID");
 	printf("\n 2. List all Students");
-	printf("\n 3. Search Student by ID");
-	printf("\n 4. Search Student by Name");
-	printf("\n 5. Update Student by ID");
-	printf("\n 6. Exit");
+	printf("\n 3. Sort Students by ID");
+	printf("\n 4. Search Student by ID");
+	printf("\n 5. Search Student by Name");
+	printf("\n 0. Exit");
 	printf("\n====================================\n");
 	
 	while(1){
@@ -214,27 +238,33 @@ int main(){
 		scanf("%d", &choice);
 		
 		switch(choice){
+			
 			case 1:
-				creatStd(std);
+				printf("\n\tAll Students:\n");
+				displayStd(std, maxStd);
+				updateStdById(std, id, maxStd);
+				printf("\n\tUpdated!\n");
 				break;
 			case 2:
-				displayAll(std);
+				printf("\n\tAll Students:\n");
+				displayStd(std, maxStd);
 				break;
 			case 3:
-				findStdById(std, id);
+				sortStdById(std, maxStd);
 				break;
 			case 4:
-				findStdByName(std, name);
+				findStdById(std, id, maxStd);
 				break;
 			case 5:
-				updateStdById(std, id);
+				findStdByName(std, name, maxStd);
 				break;
-			case 6:
-				printf("\nEnding Program!\n");
+			case 0:
+				printf("\n\tEnding Program...\n");
+				free(std);
 				exit(0);
+				break;
 			default:
-				printf("\nNot invalid! - Please try again.\n");
-				printf("(Enter only from 1 to 6)\n");
+				printf("\n\tNot invalid! - Please try again.\n");
 				break;
 		}
 	}
