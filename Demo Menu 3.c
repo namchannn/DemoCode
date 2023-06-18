@@ -5,15 +5,16 @@
 
 /* Struct: là cách duy nhất nói về 1 đối tượng mà trên đối tượng đó có các kiểu dữ liệu khác nhau */
 // Viết chương trình QLNV với các chức năng:
-// 1. Nhập thông tin NV
+// Nhập thông tin NV với số lượng tự nhập vào sau đó hiển thị ra Menu lựa chọn các chức năng
+// 				Menu
+// 1. Cập nhật thông tin NV theo ID
 // 2. Hiển thị thông tin tất cả NV
-// 3. Tìm kiếm thông tin NV theo ID
-// 4. Tìm kiếm thông tin NV theo Tên
-// 5. Sắp xếp NV theo thứ tự ID
-// 6. Sắp xếp NV lương giảm dần
-// 7. Hiển thị NV lương > 3000
-// 8. Cập nhật thông tin NV theo ID
-// 9. Thoát
+// 3. Sắp xếp NV theo thứ tự ID
+// 4. Sắp xếp NV lương giảm dần
+// 5. Tìm kiếm NV lương cao nhất
+// 6. Tìm kiếm thông tin NV theo ID
+// 7. Tìm kiếm thông tin NV theo Tên
+// 8. Thoát
 
 // Hàm cấu trúc NV
 struct employee{
@@ -77,13 +78,13 @@ void updateEmp(struct employee emp[], int id, int maxEMP){
 		printf("\nEnter ID Employee to be update (Or press the '0' button to back): ");
 		scanf("%d", &id);
 		
-		if(id == 0){
+		if(id == 0){ // id nhập vào là ký tự '0' thì kết thúc vòng lặp và quay trở lại Menu
 			break;
 		}
 		
 		for(int i = 0; i < maxEMP; i++){
 			
-			if(emp[i].eid == id){
+			if(emp[i].eid == id){ // id trùng khớp sẽ cho thực hiện cập nhật thông tin
 				found = 1;
 				printf("Enter new data to update: ");
 				printf("\nEmployee Name: ");
@@ -94,7 +95,7 @@ void updateEmp(struct employee emp[], int id, int maxEMP){
 			}
 		}
 		
-		if(!found){
+		if(!found){ // không tìm thấy id sẽ báo lỗi yêu cầu nhập lại
 			printf("ID not invalid! - Please try again.\n");
 			continue;
 		}
@@ -106,11 +107,11 @@ void updateEmp(struct employee emp[], int id, int maxEMP){
 void sortEmpById(struct employee emp[], int maxEMP){
 	struct employee temp;
 	
-	for(int i = 0; i < maxEMP; i++){
+	for(int i = 0; i < maxEMP; i++){ // Bubble Sort
 		
 		for(int j = 0; j < maxEMP - i - 1; j++){
 			
-			if(emp[j].eid > emp[j + 1].eid){
+			if(emp[j].eid > emp[j + 1].eid){ // tăng dần
 				temp = emp[j];
 				emp[j] = emp[j + 1];
 				emp[j + 1] = temp;
@@ -129,7 +130,7 @@ void sortEmpBySalaryRank(struct employee emp[], int maxEMP){
 		
 		for(int j = 0; j < maxEMP - i - 1; j++){
 			
-			if(emp[j].salary < emp[j + 1].salary){
+			if(emp[j].salary < emp[j + 1].salary){ // giảm dần
 				temp = emp[j];
 				emp[j] = emp[j + 1];
 				emp[j + 1] = temp;
@@ -146,7 +147,7 @@ void findEmpMaxSalary(struct employee emp[], int maxEMP){
 	
 	for(int i = 0; i < maxEMP; i++){
 		
-		if(emp[i].salary > maxRank.salary){
+		if(emp[i].salary > maxRank.salary){ // NV có lương cao hơn lương maxRank thì maxRank = NV lương cao nhất
 			maxRank = emp[i];
 		}
 	}
@@ -154,7 +155,7 @@ void findEmpMaxSalary(struct employee emp[], int maxEMP){
 	printf("ID: %d", maxRank.eid);
 	printf("\nName: ");
 	puts(maxRank.name);
-	printf("Salary: %0.2f$\n", maxRank.salary);
+	printf("Salary: %0.2f$\n", maxRank.salary); // trả về struct của maxRank
 }
 
 // Hàm kiểm tra lương NV > 3000
@@ -180,14 +181,14 @@ void findEmpById(struct employee emp[], int id, int maxEMP){
 		printf("\nEnter ID of Employee to be search (Or press the '0' button to back): ");
 		scanf("%d", &id);
 		
-		if(id == 0){
+		if(id == 0){ // id nhập vào là ký tự '0' thì kết thúc vòng lặp và quay trở lại Menu
 			break;
 		}
 		printf("\nResult Check\n");
 		
 		for(int i = 0; i < maxEMP; i++){
 			
-			if(emp[i].eid == id){
+			if(emp[i].eid == id){ // id trùng khớp sẽ cho thực hiện cập nhật thông tin
 				found = 1;
 				printf("ID: %d", emp[i].eid);
 				printf("\nName: ");
@@ -197,7 +198,7 @@ void findEmpById(struct employee emp[], int id, int maxEMP){
 			}
 		}
 		
-		if(!found){
+		if(!found){ // không tìm thấy id sẽ báo lỗi yêu cầu nhập lại
 			printf("ID not invalid! - Please try again.\n");
 			continue;
 		}
@@ -215,14 +216,14 @@ void findEmpByName(struct employee emp[], char name[], int maxEMP){
 		fflush(stdin);
 		gets(name);
 		
-		if(name[i] == '0'){
+		if(name[i] == '0'){ // tên nhập vào là ký tự '0' thì kết thúc vòng lặp và quay trở lại Menu
 			break;
 		}
 		printf("\nResult Check\n");
 		
 		for(int i = 0; i < maxEMP; i++){
 			
-			if(strcmp(emp[i].name, name) == 0){
+			if(strcmp(emp[i].name, name) == 0){ // tên trùng khớp sẽ cho thực hiện cập nhật thông tin
 				found = 1;
 				printf("ID: %d", emp[i].eid);
 				printf("\nName: ");
@@ -232,7 +233,7 @@ void findEmpByName(struct employee emp[], char name[], int maxEMP){
 			}
 		}
 		
-		if(!found){
+		if(!found){ // không tìm thấy tên sẽ báo lỗi yêu cầu nhập lại
 			printf("Name not invalid! - Please try again.\n");
 			continue;
 		}
@@ -249,19 +250,19 @@ int main(){
 	
 	emp = (struct employee*)malloc(maxEMP * sizeof(struct employee));
 	
-//	printf("Enter number of Employee to be creat: ");
-//	scanf("%d", &maxEMP);
-//	creatEmp(emp, maxEMP);
+	printf("\tCreat and Input Employee information\n");
+	printf("Enter number of Employee to be creat: ");
+	scanf("%d", &maxEMP);
+	creatEmp(emp, maxEMP);
 	printf("\n\t\tMenu");
-	printf("\n 1. Creat and Input Employee information");
-	printf("\n 2. Update Employee by ID");
-	printf("\n 3. List all Employees");
-	printf("\n 4. Sort Employee by ID");
-	printf("\n 5. Sort Employee Salary High to Low");
-	printf("\n 6. Search Employee largest Salary");
-	printf("\n 7. Search Employee by ID");
-	printf("\n 8. Search Employee by Name");
-	printf("\n 9. Exit");
+	printf("\n 1. Update Employee by ID");
+	printf("\n 2. List all Employees");
+	printf("\n 3. Sort Employee by ID");
+	printf("\n 4. Sort Employee Salary High to Low");
+	printf("\n 5. Search Employee largest Salary");
+	printf("\n 6. Search Employee by ID");
+	printf("\n 7. Search Employee by Name");
+	printf("\n 8. Exit");
 	printf("\n====================================\n");
 	
 	while(1){
@@ -271,39 +272,35 @@ int main(){
 		switch(choice){
 			
 			case 1:
-				printf("Enter number of Employee to be creat: ");
-				scanf("%d", &maxEMP);
-				creatEmp(emp, maxEMP);
-				break;
-			case 2:
 				printf("\nAll Employee: \n");
 				displayEmp(emp, maxEMP);
 				updateEmp(emp, id, maxEMP);
 				printf("\n\tUpdated!\n");
 				break;
-			case 3:
+			case 2:
 				printf("\nAll Employee: \n");
 				displayEmp(emp, maxEMP);
 				break;
-			case 4:
+			case 3:
 				sortEmpById(emp, maxEMP);
 				break;
-			case 5:
+			case 4:
 				sortEmpBySalaryRank(emp, maxEMP);
 				break;
-			case 6:
+			case 5:
 				findEmpMaxSalary(emp, maxEMP);
 				break;
-			case 7:
+			case 6:
 				findEmpById(emp, id, maxEMP);
 				break;
-			case 8:
+			case 7:
 				findEmpByName(emp, name, maxEMP);
 				break;
-			case 9:
+			case 8:
 				printf("\n\tEnding Program...\n");
 				free(emp);
 				exit(0);
+				break;
 			default:
 				printf("\n\tNot invalid! - Please try again.\n");
 				break;
