@@ -250,13 +250,13 @@ int main(){
 	
 	printf("\n\t\tMenu");
 	printf("\n 1. Creat and Input Employee information");
-	printf("\n 2. List all Employees");
-	printf("\n 3. Search Employee by ID");
-	printf("\n 4. Search Employee by Name");
-	printf("\n 5. Sort Employee by ID");
-	printf("\n 6. Sort Employee Salary High to Low");
-	printf("\n 7. Display Employee whose salary > 3000");
-	printf("\n 8. Update Employee by ID");
+	printf("\n 2. Update Employee by ID");
+	printf("\n 3. List all Employees");
+	printf("\n 4. Sort Employee by ID");
+	printf("\n 5. Sort Employee Salary High to Low");
+	printf("\n 6. Search Employee largest Salary");
+	printf("\n 7. Search Employee by ID");
+	printf("\n 8. Search Employee by Name");
 	printf("\n 9. Exit");
 	printf("\n====================================\n");
 	
