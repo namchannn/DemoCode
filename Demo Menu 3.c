@@ -15,7 +15,7 @@
 // 8. Cập nhật thông tin NV theo ID
 // 9. Thoát
 
-#define maxEMP 3 // Định nghĩa giới hạn SLNV
+#define maxEMP 5 // Định nghĩa giới hạn SLNV
 
 // Hàm cấu trúc NV
 struct employee{
