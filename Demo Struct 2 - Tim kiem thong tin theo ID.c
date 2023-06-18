@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 // Struct: là Mảng mà phần tử Mảng có các kiểu dữ liệu khác nhau
 // Tên của struct (cấu trúc)
@@ -12,7 +13,7 @@
 // 5. Cập nhật thông tin NV theo ID
 // 6. Thoát
 
-#define maxStudents 5
+#define maxStudents 3
 
 struct DateOfBirth{
 	int day;
@@ -28,15 +29,15 @@ struct Student{
 	struct DateOfBirth dob;
 };
 
-int checkDupID(struct Student std[], int id, int currentStdIndex){
+bool checkDupID(struct Student std[], int id, int currentStdIndex){
 	
 	for(int i = 0; i < currentStdIndex; i++){
 		
 		if(std[i].eid == id){
-			return 0;
+			return false;
 		}
 	}
-	return 1;
+	return true;
 }
 
 void creatStd(struct Student std[]){
@@ -44,7 +45,7 @@ void creatStd(struct Student std[]){
 	for(int i = 0; i < maxStudents; i++){
 		printf("Enter Student %d:\n", i + 1);
 		
-		while(1){
+		while(true){
 			printf("Enter ID: ");
 			scanf("%d", &std[i].eid);
 			
@@ -112,7 +113,9 @@ void findStdById(struct Student std[], int id){
 		
 		if(!found){
 			printf("ID not invalid! - Please try again.\n");
+			continue;
 		}
+		break;
 	}
 }
 
@@ -145,10 +148,11 @@ void findStdByName(struct Student std[], char name[]){
 			}
 		}
 		
-		if(name[i] != found){
+		if(!found){
 			printf("Name not invalid! - Please try again.\n");
 			continue;
 		}
+		break;
 	}
 }
 
@@ -184,7 +188,9 @@ void updateStdById(struct Student std[], int id){
 		
 		if(!found){
 			printf("ID not invalid! - Please try again.\n");
+			continue;
 		}
+		break;
 	}
 }
 
