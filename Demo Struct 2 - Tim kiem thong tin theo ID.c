@@ -6,11 +6,14 @@
 // Struct: là Mảng mà phần tử Mảng có các kiểu dữ liệu khác nhau
 // Tên của struct (cấu trúc)
 // Viết chương trình QLNV với các chức năng:
-// 1. Nhập thông tin SV
+// Nhập thông tin SV với số lượng tự nhập vào sau đó hiển thị ra Menu lựa chọn các chức năng
+//				Menu
+// 1. Cập nhật thông tin SV theo ID
 // 2. Hiển thị thông tin tất cả SV
-// 3. Tìm kiếm thông tin SV theo ID
-// 4. Tìm kiếm thông tin SV theo Tên
-// 5. Cập nhật thông tin NV theo ID
+// 3. Sắp xếp NV theo ID tăng dần
+// 4. Tìm kiếm thông tin SV theo ID
+// 5. Tìm kiếm thông tin SV theo Tên
+// 6. Tìm kiếm thông tin SV theo Giới tính
 // 0. Thoát
 
 struct DateOfBirth{
