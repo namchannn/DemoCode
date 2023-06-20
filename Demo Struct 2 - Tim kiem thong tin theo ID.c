@@ -172,7 +172,7 @@ void findStdById(struct student std[], int id, int maxStd){
 				puts(std[i].sex);
 				printf("Adress: ");
 				puts(std[i].address);
-				break;
+				maxStd++;
 			}
 		}
 		
@@ -224,11 +224,48 @@ void findStdByName(struct student std[], char name[], int maxStd){
 	}
 }
 
+void findStdBySex(struct student std[], char sex[], int maxStd){
+	int found = 0;
+	int i;
+	
+	while(1){
+		printf("\nEnter sex of Student to be search (Or press the '0' button to back): ");
+		fflush(stdin);
+		gets(sex);
+		
+		if(sex[i] == '0'){
+			break;
+		}
+		printf("\n\tResult Check\n");
+		
+		for(int i = 0; i < maxStd; i++){
+			
+			if(strcmp(std[i].sex, sex) == 0){
+				found = 1;
+				printf("\nID: %d", std[i].eid);
+				printf("\nName: ");
+				puts(std[i].name);
+				printf("Class room: ");
+				puts(std[i].class_room);
+				printf("Date of birth: %d/%d/%d", std[i].dob.day, std[i].dob.month, std[i].dob.year);
+				printf("\nSex: ");
+				puts(std[i].sex);
+				printf("Address: ");
+				puts(std[i].address);
+			}
+		}
+		
+		if(!found){
+			printf("Sex not invalid! - Please try again.\n");
+			continue;
+		}
+		break;
+	}
+}
+
 int main(){
-	int choice;
-	int id;
-	int maxStd;
-	char name[50];
+	int choice, maxStd, id;
+	char name[50], sex[20];
 	struct student *std;
 	
 	std = (struct student*)malloc(maxStd * sizeof(struct student));
@@ -243,6 +280,7 @@ int main(){
 	printf("\n 3. Sort Students by ID");
 	printf("\n 4. Search Student by ID");
 	printf("\n 5. Search Student by Name");
+	printf("\n 6. Search Student by Sex");
 	printf("\n 0. Exit");
 	printf("\n====================================\n");
 	
@@ -270,6 +308,9 @@ int main(){
 				break;
 			case 5:
 				findStdByName(std, name, maxStd);
+				break;
+			case 6:
+				findStdBySex(std, sex, maxStd);
 				break;
 			case 0:
 				printf("\n\tEnding Program...\n");
