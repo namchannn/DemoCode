@@ -14,12 +14,14 @@
 // 5. Tìm kiếm NV lương cao nhất
 // 6. Tìm kiếm thông tin NV theo ID
 // 7. Tìm kiếm thông tin NV theo Tên
+// 8. Tìm kiếm thông tin NV theo giới tính
 // 0. Thoát
 
 // Hàm cấu trúc NV
 struct employee{
 	int eid; // Biến thành phần Mã NV
 	char name[50]; // Biến thành phần tên NV
+	char sex[10];
 	float salary; // Biến thành phần lương NV
 };
 
@@ -54,6 +56,9 @@ void creatEmp(struct employee emp[], int maxEMP){
 		printf("Enter Name: ");
 		fflush(stdin);
 		gets(emp[i].name);
+		printf("Enter Sex: ");
+		fflush(stdin);
+		gets(emp[i].sex);
 		printf("Enter Salary: ");
 		scanf("%f", &emp[i].salary);
 	}
@@ -66,6 +71,8 @@ void displayEmp(struct employee emp[], int maxEMP){
 		printf("\nID: %d", emp[i].eid);
 		printf("\nName: ");
 		puts(emp[i].name);
+		printf("Sex: ");
+		puts(emp[i].sex);
 		printf("Salary: %0.2f$\n", emp[i].salary);
 	}
 }
@@ -90,6 +97,9 @@ void updateEmp(struct employee emp[], int id, int maxEMP){
 				printf("\nEmployee Name: ");
 				fflush(stdin);
 				gets(emp[i].name);
+				printf("Employee Sex: ");
+				fflush(stdin);
+				gets(emp[i].sex);
 				printf("Salary: ");
 				scanf("%f", &emp[i].salary);
 			}
@@ -155,6 +165,8 @@ void findEmpMaxSalary(struct employee emp[], int maxEMP){
 	printf("ID: %d", maxRank.eid);
 	printf("\nName: ");
 	puts(maxRank.name);
+	printf("Sex: ");
+	puts(maxRank.sex);
 	printf("Salary: %0.2f$\n", maxRank.salary); // trả về struct của maxRank
 }
 
@@ -168,6 +180,8 @@ void checkSalary(struct employee emp[], int maxEMP){
 			printf("ID: %d", emp[i].eid);
 			printf("\nName: ");
 			puts(emp[i].name);
+			printf("Sex: ");
+			puts(emp[i].sex);
 			printf("Salary: %0.2f$\n", emp[i].salary);
 		}
 	}	
@@ -193,6 +207,8 @@ void findEmpById(struct employee emp[], int id, int maxEMP){
 				printf("ID: %d", emp[i].eid);
 				printf("\nName: ");
 				puts(emp[i].name);
+				printf("Sex: ");
+				puts(emp[i].sex);
 				printf("Salary: %0.2f$\n", emp[i].salary);
 				break;
 			}
@@ -228,6 +244,8 @@ void findEmpByName(struct employee emp[], char name[], int maxEMP){
 				printf("ID: %d", emp[i].eid);
 				printf("\nName: ");
 				puts(emp[i].name);
+				printf("Sex: ");
+				puts(emp[i].sex);
 				printf("Salary: %0.2f$\n", emp[i].salary);
 				break;
 			}
@@ -241,11 +259,44 @@ void findEmpByName(struct employee emp[], char name[], int maxEMP){
 	}
 }
 
+void findEmpBySex(struct employee emp[], char sex[], int maxEMP){
+	int found = 0;
+	int i;
+	
+	while(1){
+		printf("\nEnter sex of Employee to be search (Or press the '0' button to back): ");
+		fflush(stdin);
+		gets(sex);
+		
+		if(sex[i] == '0'){
+			break;
+		}
+		printf("\n\tResult Check\n\n");
+		
+		for(int i = 0; i < maxEMP; i++){
+			
+			if(strcmp(emp[i].sex, sex) == 0){
+				found = 1;
+				printf("ID: %d", emp[i].eid);
+				printf("\nName: ");
+				puts(emp[i].name);
+				printf("Sex: ");
+				puts(emp[i].sex);
+				printf("Salary: %0.2f$\n", emp[i].salary);
+			}
+		}
+		
+		if(!found){
+			printf("Sex not invalid! - Please try again.\n");
+			continue;
+		}
+		break;
+	}
+}
+
 int main(){
-	int choice;
-	int id;
-	int maxEMP;
-	char name[50];
+	int choice, id, maxEMP;
+	char name[50], sex[10];
 	struct employee *emp;
 	
 	emp = (struct employee*)malloc(maxEMP * sizeof(struct employee)); // cấp phát bộ nhớ động cho con trỏ emp
@@ -262,6 +313,7 @@ int main(){
 	printf("\n 5. Search Employee largest Salary");
 	printf("\n 6. Search Employee by ID");
 	printf("\n 7. Search Employee by Name");
+	printf("\n 8. Search Employee by Sex");
 	printf("\n 0. Exit");
 	printf("\n====================================\n");
 	
@@ -295,6 +347,9 @@ int main(){
 				break;
 			case 7:
 				findEmpByName(emp, name, maxEMP);
+				break;
+			case 8:
+				findEmpBySex(emp, sex, maxEMP);
 				break;
 			case 0:
 				printf("\n\tEnding Program...\n");
