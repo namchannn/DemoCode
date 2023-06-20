@@ -10,7 +10,7 @@
 //				Menu
 // 1. Cập nhật thông tin SV theo ID
 // 2. Hiển thị thông tin tất cả SV
-// 3. Sắp xếp NV theo ID tăng dần
+// 3. Sắp xếp NV theo thứ tự ID
 // 4. Tìm kiếm thông tin SV theo ID
 // 5. Tìm kiếm thông tin SV theo Tên
 // 6. Tìm kiếm thông tin SV theo Giới tính
